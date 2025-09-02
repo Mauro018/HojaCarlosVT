@@ -1,0 +1,214 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f0f2f5; /* A very light, modern gray */
+  color: #333;
+  margin: 0;
+  padding: 0; /* Remove body padding to allow content to spread */
+  line-height: 1.6;
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  display: flex;
+  flex-direction: column; /* For sticky footer */
+}
+
+/* Main container - now takes more width */
+#number {
+  max-width: 1200px; /* Increased max-width */
+  width: 90%; /* Use percentage for responsiveness */
+  margin: 30px auto; /* Keep centered with some top/bottom margin */
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Slightly more prominent shadow */
+  overflow: hidden;
+  flex-grow: 1; /* Allows it to take available space for sticky footer */
+}
+
+/* Header section with a clean, deep blue */
+.ht {
+  background-color: #1a237e; /* Deep blue for a strong, professional header */
+  color: #fff;
+  text-align: center;
+  padding: 25px;
+  margin: 0;
+  font-size: 2.5em;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Main content layout using Flexbox - now centered and aligned */
+.principal {
+  display: flex;
+  flex-direction: column; /* Default to column for small screens */
+  padding: 40px; /* Generous padding */
+  gap: 50px; /* Increased gap between sections */
+  align-items: center; /* Center items for column layout */
+}
+
+@media (min-width: 992px) { /* Larger breakpoint for side-by-side layout */
+  .principal {
+    flex-direction: row;
+    align-items: flex-start; /* Align to top for row layout */
+    justify-content: center; /* Center the entire row */
+  }
+}
+
+/* Profile image styling */
+.img1,
+img {
+  width: 280px; /* Slightly larger image */
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 7px solid #3f51b5; /* A slightly softer blue border */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* More depth */
+  transition: transform 0.3s ease-in-out; /* Dynamic hover effect */
+}
+
+img:hover {
+  transform: scale(1.05) rotate(2deg); /* Subtle growth and rotation on hover */
+}
+
+/* Section styling for clean separation */
+.section1 {
+  flex-grow: 1;
+  max-width: 700px; /* Constrain text width for readability */
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Playfair Display', serif;
+  color: #2c3e50;
+  margin-top: 35px; /* More space above headings */
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 1.8em;
+  position: relative; /* For the pseudo-element underline */
+  padding-bottom: 8px;
+}
+
+h1::after,
+h2::after,
+h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px; /* Shorter, more elegant underline */
+  height: 3px;
+  background-color: #3f51b5; /* Accent color for underline */
+  border-radius: 2px;
+}
+
+p,
+li {
+  font-size: 1.15em; /* Slightly larger text for readability */
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.7; /* Increased line-height */
+}
+
+ul {
+  padding-left: 25px;
+  list-style-type: none; /* Remove default list style */
+}
+
+ul li::before {
+  content: '✓'; /* Checkmark for a modern look */
+  color: #4caf50; /* Green for completion/positive connotation */
+  font-weight: bold;
+  display: inline-block;
+  width: 1.5em; /* Space for the checkmark */
+  margin-left: -1.5em;
+}
+
+ul li {
+  margin-bottom: 10px;
+  padding-left: 5px; /* A little extra padding */
+  transition: color 0.2s ease-in-out; /* Dynamic hover effect */
+}
+
+ul li:hover {
+  color: #1a237e; /* Darker text on hover */
+}
+
+
+/* Footer styling - dynamic and ready for social icons */
+footer {
+  background-color: #263238;
+  color: #ecf0f1;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: auto;
+  border-radius: 0;
+  width: 100%;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #bbb;
+}
+
+/* Reducir el tamaño de la imagen */
+footer img {
+  width: 50px; /* Tamaño más pequeño para la imagen */
+  height: auto; /* Mantiene la proporción */
+  border: 4px solid #3f51b5; /* Borde más delgado */
+  border-radius: 50%; /* Mantener la forma circular */
+  margin-top: 15px; /* Espacio para separarla del texto */
+}
+
+/* Dinamismo al pasar el cursor (opcional) */
+footer img:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 10px #64b5f6;
+}
+
+
+/* Placeholder for social media icons */
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: #ecf0f1;
+  font-size: 1em; /* Size for social icons */
+  margin: 0 10px;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  display: inline-block; /* Ensure transform works */
+}
+
+.social-icons a:hover {
+  color: #64b5f6; /* Lighter blue on hover */
+  transform: translateY(-5px) scale(1.1); /* Lift and grow on hover */
+}
+
+/* Small screen adjustments */
+@media (max-width: 767px) {
+  .ht {
+    font-size: 2em;
+    padding: 20px;
+  }
+
+  .principal {
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .img1,
+  img {
+    width: 200px;
+    height: 200px;
+    border-width: 5px;
+  }
+
+  h1,h2,h3 {
+    font-size: 1.5em;
+  }
+
+  p, li {
+    font-size: 1em;
+  }
+}
