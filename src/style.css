@@ -1,248 +1,469 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #f0f2f5; /* A very light, modern gray */
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
   color: #333;
-  margin: 0;
-  padding: 0; /* Remove body padding to allow content to spread */
   line-height: 1.6;
-  min-height: 100vh; /* Ensure body takes full viewport height */
-  display: flex;
-  flex-direction: column; /* For sticky footer */
+  padding: 20px;
 }
 
-/* Main container - now takes more width */
-#number {
-  max-width: 1200px; /* Increased max-width */
-  width: 90%; /* Use percentage for responsiveness */
-  margin: 30px auto; /* Keep centered with some top/bottom margin */
+/* Main container */
+.cv-container {
+  max-width: 1200px;
+  margin: 0 auto;
   background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Slightly more prominent shadow */
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
   overflow: hidden;
-  flex-grow: 1; /* Allows it to take available space for sticky footer */
 }
 
-/* Header section with a clean, deep blue */
-.ht {
-  background-color: #1a237e; /* Deep blue for a strong, professional header */
+/* Header section */
+.cv-header {
+  background: linear-gradient(135deg, #1a237e 0%, #3f51b5 100%);
   color: #fff;
-  text-align: center;
-  padding: 25px;
-  margin: 0;
+  padding: 40px;
+  position: relative;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.header-info {
+  flex: 1;
+}
+
+.name {
   font-size: 2.5em;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5px;
+  color: #fff;
 }
 
-/* Main content layout using Flexbox - now centered and aligned */
-.principal {
+.title {
+  font-size: 1.2em;
+  font-style: italic;
+  opacity: 0.95;
+  color: #e3f2fd;
+}
+
+/* Two column layout */
+.cv-body {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  min-height: 600px;
+}
+
+/* Left sidebar */
+.sidebar {
+  background-color: #e8eaf6;
+  padding: 40px 30px;
+}
+
+.sidebar-section {
+  margin-bottom: 35px;
+}
+
+.sidebar-title {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #3f51b5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sidebar-text {
+  font-size: 0.95em;
+  color: #555;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* Education items */
+.education-item {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #c5cae9;
+}
+
+.education-item:last-child {
+  border-bottom: none;
+}
+
+.education-item.placeholder {
+  opacity: 0.3;
+}
+
+.year {
+  font-weight: 700;
+  color: #1a237e;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.degree {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 3px;
+}
+
+.institution,
+.subtitle {
+  font-size: 0.9em;
+  color: #666;
+  font-style: italic;
+}
+
+/* Contact items */
+.contact-item {
+  margin-bottom: 15px;
+}
+
+.contact-label {
+  font-weight: 600;
+  color: #1a237e;
+  font-size: 0.9em;
+  margin-bottom: 3px;
+}
+
+.contact-value {
+  color: #555;
+  font-size: 0.9em;
+  word-break: break-word;
+}
+
+/* Skills list */
+.skills-list {
+  list-style: none;
+}
+
+.skills-list li {
+  padding: 8px 0;
+  color: #555;
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.95em;
+}
+
+.skills-list li::before {
+  content: '●';
+  position: absolute;
+  left: 0;
+  color: #3f51b5;
+  font-size: 1.2em;
+}
+
+.skills-list li.placeholder {
+  opacity: 0.3;
+}
+
+/* Languages */
+.language-item {
+  margin-bottom: 15px;
+}
+
+.language-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 0.95em;
+}
+
+.language-level {
   display: flex;
-  flex-direction: column; /* Default to column for small screens */
-  padding: 40px; /* Generous padding */
-  gap: 30px; /* Gap between photo section and content */
-  align-items: stretch; /* Stretch items to fill space */
+  gap: 5px;
 }
 
-/* Profile section (photo + name) */
-.principal > section:first-child {
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #c5cae9;
+  border: 2px solid #3f51b5;
+}
+
+.dot.filled {
+  background-color: #3f51b5;
+}
+
+/* Main content area */
+.main-content {
+  background-color: #fff;
+  padding: 40px 45px;
+}
+
+.content-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #3f51b5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Experience items */
+.experience-item {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.experience-item:last-child {
+  border-bottom: none;
+}
+
+.experience-item.placeholder {
+  opacity: 0.3;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.year-range {
+  font-size: 0.9em;
+  color: #3f51b5;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.position {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 5px;
+}
+
+.company {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.description {
+  color: #666;
+  line-height: 1.7;
+  font-size: 0.95em;
+}
+
+/* Projects */
+.project-item {
+  margin-bottom: 20px;
+}
+
+.project-item.placeholder {
+  opacity: 0.3;
+}
+
+.project-name {
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 8px;
+  font-size: 1.05em;
+}
+
+.project-description {
+  color: #666;
+  line-height: 1.7;
+  font-size: 0.95em;
+}
+
+/* Recognition icons */
+.recognition-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.recognition-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid #e0e0e0; /* Separator line */
+  padding: 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background-color: #fff;
 }
 
-.profile-name {
-  text-align: center;
+.recognition-card:hover {
+  border-color: #3f51b5;
+  box-shadow: 0 4px 12px rgba(63, 81, 181, 0.2);
+  transform: translateY(-5px);
 }
 
-.profile-name h1 {
-  margin-top: 0;
-  font-size: 1.5em;
-}
-
-.profile-name p {
-  font-size: 1.2em;
-  color: #2c3e50;
-  font-weight: 600;
-  margin-bottom: 0;
-}
-
-@media (min-width: 992px) { /* Larger breakpoint for side-by-side layout */
-  .principal > section:first-child {
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 30px;
-  }
-  
-  .profile-name {
-    text-align: left;
-  }
-}
-
-/* Profile image styling */
-.img1,
-img {
-  width: 200px; /* Smaller image to fit in one section */
-  height: 200px;
+.recognition-card img {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  border: 7px solid #3f51b5; /* A slightly softer blue border */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* More depth */
-  transition: transform 0.3s ease-in-out; /* Dynamic hover effect */
-  flex-shrink: 0; /* Prevent image from shrinking */
-}
-
-img:hover {
-  transform: scale(1.05) rotate(2deg); /* Subtle growth and rotation on hover */
-}
-
-/* Section styling for clean separation */
-.section1 {
-  flex-grow: 1;
-  width: 100%; /* Use full available width */
-  max-width: none; /* Remove max-width constraint */
-  min-height: 500px; /* Ensure minimum height for content */
-}
-
-/* Only apply styling to h1 within section1, not in profile-name */
-.section1 h1,
-h2,
-h3 {
-  font-family: 'Playfair Display', serif;
-  color: #2c3e50;
-  margin-top: 35px; /* More space above headings */
-  margin-bottom: 15px;
-  font-weight: 700;
-  font-size: 1.8em;
-  position: relative; /* For the pseudo-element underline */
-  padding-bottom: 8px;
-}
-
-.section1 h1::after,
-h2::after,
-h3::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 60px; /* Shorter, more elegant underline */
-  height: 3px;
-  background-color: #3f51b5; /* Accent color for underline */
-  border-radius: 2px;
-}
-
-p,
-li {
-  font-size: 1.15em; /* Slightly larger text for readability */
-  color: #555;
-  margin-bottom: 15px;
-  line-height: 1.7; /* Increased line-height */
-}
-
-ul {
-  padding-left: 25px;
-  list-style-type: none; /* Remove default list style */
-}
-
-ul li::before {
-  content: '✓'; /* Checkmark for a modern look */
-  color: #4caf50; /* Green for completion/positive connotation */
-  font-weight: bold;
-  display: inline-block;
-  width: 1.5em; /* Space for the checkmark */
-  margin-left: -1.5em;
-}
-
-ul li {
   margin-bottom: 10px;
-  padding-left: 5px; /* A little extra padding */
-  transition: color 0.2s ease-in-out; /* Dynamic hover effect */
+  border: 3px solid #3f51b5;
 }
 
-ul li:hover {
-  color: #1a237e; /* Darker text on hover */
-}
-
-
-/* Footer styling - dynamic and ready for social icons */
-footer {
-  background-color: #263238;
-  color: #ecf0f1;
-  text-align: center;
-  padding: 30px 20px;
-  margin-top: auto;
-  border-radius: 0;
-  width: 100%;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
-}
-
-footer p {
-  margin: 0;
+.recognition-card p {
   font-size: 0.9em;
-  color: #bbb;
+  font-weight: 600;
+  color: #1a237e;
+  text-align: center;
+  margin: 0;
 }
 
-/* Reducir el tamaño de la imagen */
-footer img {
-  width: 50px; /* Tamaño más pequeño para la imagen */
-  height: auto; /* Mantiene la proporción */
-  border: 4px solid #3f51b5; /* Borde más delgado */
-  border-radius: 50%; /* Mantener la forma circular */
-  margin-top: 15px; /* Espacio para separarla del texto */
+.recognition-card.placeholder {
+  opacity: 0.4;
+  border-style: dashed;
 }
 
-/* Dinamismo al pasar el cursor (opcional) */
-footer img:hover {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 0 10px #64b5f6;
+.icon-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #e8eaf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: #3f51b5;
+  margin-bottom: 10px;
 }
 
-
-/* Placeholder for social media icons */
-.social-icons {
-  margin-top: 15px;
+/* Download section */
+.download-section {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
 }
 
-.social-icons a {
-  color: #ecf0f1;
-  font-size: 1em; /* Size for social icons */
-  margin: 0 10px;
-  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-  display: inline-block; /* Ensure transform works */
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 35px;
+  background: linear-gradient(135deg, #1a237e 0%, #3f51b5 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(63, 81, 181, 0.3);
 }
 
-.social-icons a:hover {
-  color: #64b5f6; /* Lighter blue on hover */
-  transform: translateY(-5px) scale(1.1); /* Lift and grow on hover */
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(63, 81, 181, 0.4);
 }
 
-/* Small screen adjustments */
-@media (max-width: 767px) {
-  .ht {
+.download-btn:active {
+  transform: translateY(-1px);
+}
+
+.download-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Placeholder styling */
+.placeholder {
+  font-style: italic;
+  color: #999 !important;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background-color: #fff;
+    padding: 0;
+  }
+  
+  .cv-container {
+    box-shadow: none;
+    max-width: 100%;
+  }
+  
+  .download-btn {
+    display: none;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .cv-body {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    border-bottom: 3px solid #3f51b5;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .name {
     font-size: 2em;
-    padding: 20px;
   }
+}
 
-  .principal {
-    padding: 20px;
-    gap: 30px;
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
   }
-
-  .img1,
-  img {
-    width: 200px;
-    height: 200px;
-    border-width: 5px;
+  
+  .cv-header {
+    padding: 30px 20px;
   }
-
-  h1,h2,h3 {
-    font-size: 1.5em;
+  
+  .sidebar,
+  .main-content {
+    padding: 25px 20px;
   }
-
-  p, li {
-    font-size: 1em;
+  
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .name {
+    font-size: 1.8em;
+  }
+  
+  .recognition-icons {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
