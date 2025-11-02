@@ -104,9 +104,11 @@ img:hover {
   flex-grow: 1;
   width: 100%; /* Use full available width */
   max-width: none; /* Remove max-width constraint */
+  min-height: 500px; /* Ensure minimum height for content */
 }
 
-h1,
+/* Only apply styling to h1 within section1, not in profile-name */
+.section1 h1,
 h2,
 h3 {
   font-family: 'Playfair Display', serif;
@@ -119,7 +121,7 @@ h3 {
   padding-bottom: 8px;
 }
 
-h1::after,
+.section1 h1::after,
 h2::after,
 h3::after {
   content: '';
