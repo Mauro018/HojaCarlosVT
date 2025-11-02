@@ -152,7 +152,7 @@ body {
   word-break: break-word;
 }
 
-/* Skills list */
+/* Skills list in sidebar */
 .skills-list {
   list-style: none;
 }
@@ -177,33 +177,32 @@ body {
   opacity: 0.3;
 }
 
-/* Languages */
-.language-item {
-  margin-bottom: 15px;
+/* Skills list in main content */
+.skills-list-main {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 0;
 }
 
-.language-name {
-  font-weight: 600;
+.skills-list-main li {
+  padding: 12px 20px;
+  background-color: #e8eaf6;
+  border-left: 4px solid #3f51b5;
   color: #333;
-  margin-bottom: 8px;
   font-size: 0.95em;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-.language-level {
-  display: flex;
-  gap: 5px;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+.skills-list-main li:hover {
   background-color: #c5cae9;
-  border: 2px solid #3f51b5;
+  transform: translateX(5px);
 }
 
-.dot.filled {
-  background-color: #3f51b5;
+.skills-list-main li.placeholder {
+  opacity: 0.3;
 }
 
 /* Main content area */
@@ -413,10 +412,98 @@ body {
   .cv-container {
     box-shadow: none;
     max-width: 100%;
+    margin: 0;
   }
   
   .download-btn {
-    display: none;
+    display: none !important;
+  }
+  
+  .download-section {
+    display: none !important;
+  }
+  
+  /* Preserve colors in print */
+  .cv-header {
+    background: linear-gradient(135deg, #1a237e 0%, #3f51b5 100%) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  .sidebar {
+    background-color: #e8eaf6 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  .sidebar-title {
+    color: #1a237e !important;
+    border-bottom-color: #3f51b5 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  .section-title {
+    color: #1a237e !important;
+    border-bottom-color: #3f51b5 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  .skills-list-main li {
+    background-color: #e8eaf6 !important;
+    border-left-color: #3f51b5 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  .recognition-card {
+    border-color: #e0e0e0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  .recognition-card img {
+    border-color: #3f51b5 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  .profile-photo {
+    border-color: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  /* Ensure proper page breaks */
+  .cv-header,
+  .content-section,
+  .sidebar-section {
+    page-break-inside: avoid;
+  }
+  
+  /* Preserve grid layout */
+  .cv-body {
+    display: grid !important;
+    grid-template-columns: 350px 1fr !important;
+  }
+  
+  .recognition-icons {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  
+  .skills-list-main {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
