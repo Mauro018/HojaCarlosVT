@@ -404,15 +404,22 @@ body {
 
 /* Print styles */
 @media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
   body {
     background-color: #fff;
     padding: 0;
+    margin: 0;
   }
   
   .cv-container {
     box-shadow: none;
     max-width: 100%;
     margin: 0;
+    border-radius: 0;
   }
   
   .download-btn {
@@ -423,87 +430,228 @@ body {
     display: none !important;
   }
   
-  /* Preserve colors in print */
+  /* Scale down everything to fit in one page */
   .cv-header {
     background: linear-gradient(135deg, #1a237e 0%, #3f51b5 100%) !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    color-adjust: exact;
+    padding: 15px 20px !important;
+  }
+  
+  .header-content {
+    gap: 15px !important;
+  }
+  
+  .profile-photo {
+    width: 80px !important;
+    height: 80px !important;
+    border: 3px solid #fff !important;
+  }
+  
+  .name {
+    font-size: 1.4em !important;
+    margin-bottom: 2px !important;
+  }
+  
+  .title {
+    font-size: 0.9em !important;
+  }
+  
+  /* Two column layout - narrower sidebar */
+  .cv-body {
+    display: grid !important;
+    grid-template-columns: 250px 1fr !important;
   }
   
   .sidebar {
     background-color: #e8eaf6 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    color-adjust: exact;
+    padding: 15px 12px !important;
+  }
+  
+  .main-content {
+    padding: 15px 20px !important;
+  }
+  
+  /* Reduce spacing in sections */
+  .sidebar-section {
+    margin-bottom: 12px !important;
+  }
+  
+  .content-section {
+    margin-bottom: 12px !important;
   }
   
   .sidebar-title {
+    font-size: 0.75em !important;
+    margin-bottom: 8px !important;
+    padding-bottom: 4px !important;
     color: #1a237e !important;
     border-bottom-color: #3f51b5 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    color-adjust: exact;
   }
   
   .section-title {
+    font-size: 0.9em !important;
+    margin-bottom: 8px !important;
+    padding-bottom: 5px !important;
     color: #1a237e !important;
     border-bottom-color: #3f51b5 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    color-adjust: exact;
+  }
+  
+  .sidebar-text {
+    font-size: 0.65em !important;
+    line-height: 1.3 !important;
+    margin-bottom: 5px !important;
+  }
+  
+  /* Education */
+  .education-item {
+    margin-bottom: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  
+  .year {
+    font-size: 0.65em !important;
+    margin-bottom: 2px !important;
+    color: #1a237e !important;
+  }
+  
+  .degree {
+    font-size: 0.65em !important;
+    margin-bottom: 2px !important;
+  }
+  
+  .institution,
+  .subtitle {
+    font-size: 0.6em !important;
+  }
+  
+  /* Contact */
+  .contact-item {
+    margin-bottom: 6px !important;
+  }
+  
+  .contact-label {
+    font-size: 0.65em !important;
+    margin-bottom: 2px !important;
+    color: #1a237e !important;
+  }
+  
+  .contact-value {
+    font-size: 0.6em !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* Skills in main content */
+  .skills-list-main {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
   }
   
   .skills-list-main li {
+    padding: 6px 8px !important;
+    font-size: 0.65em !important;
     background-color: #e8eaf6 !important;
     border-left-color: #3f51b5 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    color-adjust: exact;
+    border-left-width: 3px !important;
   }
   
-  .recognition-card {
-    border-color: #e0e0e0 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    color-adjust: exact;
+  /* Experience */
+  .experience-item {
+    margin-bottom: 8px !important;
+    padding-bottom: 8px !important;
   }
   
-  .recognition-card img {
-    border-color: #3f51b5 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    color-adjust: exact;
+  .year-range {
+    font-size: 0.65em !important;
+    margin-bottom: 2px !important;
+    color: #3f51b5 !important;
   }
   
-  .profile-photo {
-    border-color: #fff !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    color-adjust: exact;
+  .position {
+    font-size: 0.75em !important;
+    margin-bottom: 3px !important;
+    color: #1a237e !important;
   }
   
-  /* Ensure proper page breaks */
-  .cv-header,
-  .content-section,
-  .sidebar-section {
-    page-break-inside: avoid;
+  .company {
+    font-size: 0.65em !important;
+    margin-bottom: 3px !important;
   }
   
-  /* Preserve grid layout */
-  .cv-body {
-    display: grid !important;
-    grid-template-columns: 350px 1fr !important;
+  .description {
+    font-size: 0.65em !important;
+    line-height: 1.3 !important;
   }
   
+  /* Projects */
+  .project-item {
+    margin-bottom: 8px !important;
+  }
+  
+  .project-name {
+    font-size: 0.7em !important;
+    margin-bottom: 3px !important;
+    color: #1a237e !important;
+  }
+  
+  .project-description {
+    font-size: 0.65em !important;
+    line-height: 1.3 !important;
+  }
+  
+  /* Recognition icons */
   .recognition-icons {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
   }
   
-  .skills-list-main {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
+  .recognition-card {
+    padding: 8px !important;
+    border-color: #3f51b5 !important;
+    border-width: 1.5px !important;
+  }
+  
+  .recognition-card img {
+    width: 35px !important;
+    height: 35px !important;
+    margin-bottom: 4px !important;
+    border-color: #3f51b5 !important;
+    border-width: 2px !important;
+  }
+  
+  .recognition-card p {
+    font-size: 0.65em !important;
+    color: #1a237e !important;
+  }
+  
+  .icon-placeholder {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 1.2em !important;
+    margin-bottom: 4px !important;
+    background-color: #e8eaf6 !important;
+    color: #3f51b5 !important;
+  }
+  
+  /* Hide placeholders in print */
+  .placeholder {
+    display: none !important;
+  }
+  
+  /* Prevent page breaks inside elements */
+  .cv-header,
+  .sidebar-section,
+  .content-section,
+  .education-item,
+  .experience-item,
+  .project-item {
+    page-break-inside: avoid;
+  }
+  
+  /* Force everything to fit on one page */
+  @page {
+    margin: 0.3in;
+    size: letter;
   }
 }
 
