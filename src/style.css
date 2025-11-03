@@ -435,6 +435,23 @@ body {
   border: 3px solid #3f51b5;
 }
 
+.recognition-card .social-name {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #1a237e;
+  text-align: center;
+  margin: 0 0 5px 0;
+}
+
+.recognition-card .social-link {
+  font-size: 0.75em;
+  color: #3f51b5;
+  text-align: center;
+  margin: 0;
+  word-break: break-word;
+  font-weight: 500;
+}
+
 .recognition-card p {
   font-size: 0.9em;
   font-weight: 600;
@@ -790,35 +807,49 @@ body {
   /* Recognition icons */
   .recognition-icons {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 15px !important;
-    max-width: 350px !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
   }
   
   .recognition-card {
-    padding: 15px !important;
+    padding: 12px !important;
     border-color: #3f51b5 !important;
     border-width: 2px !important;
+    page-break-inside: avoid;
   }
   
   .recognition-card img {
-    width: 50px !important;
-    height: 50px !important;
-    margin-bottom: 8px !important;
+    width: 45px !important;
+    height: 45px !important;
+    margin-bottom: 6px !important;
     border-color: #3f51b5 !important;
     border-width: 2px !important;
   }
   
+  .recognition-card .social-name {
+    font-size: 0.75em !important;
+    color: #1a237e !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .recognition-card .social-link {
+    font-size: 0.65em !important;
+    color: #3f51b5 !important;
+    display: block !important;
+    word-break: break-all !important;
+    line-height: 1.2 !important;
+  }
+  
   .recognition-card p {
-    font-size: 0.8em !important;
+    font-size: 0.75em !important;
     color: #1a237e !important;
   }
   
   .icon-placeholder {
-    width: 50px !important;
-    height: 50px !important;
-    font-size: 1.5em !important;
-    margin-bottom: 8px !important;
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 1.3em !important;
+    margin-bottom: 6px !important;
     background-color: #e8eaf6 !important;
     color: #3f51b5 !important;
   }
